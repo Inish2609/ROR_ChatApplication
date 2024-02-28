@@ -14,9 +14,17 @@
   <body>
     <div class="ui small inverted menu">
       <div class = "ui container">
-      <%= render 'layouts/navbar' %>
+        <%= render 'layouts/navbar' %>
       </div>
     </div>
+    <% flash.each do |key, message| %>
+      <div class="ui <%= key %> message container">
+        <i class="close icon"></i>
+        <div class="header">
+          <%= message %>
+        </div>
+      </div>
+    <% end %>
     <div class = "ui container">
       <%= yield %>
     </div>
