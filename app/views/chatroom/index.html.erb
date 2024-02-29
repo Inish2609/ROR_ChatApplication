@@ -6,7 +6,7 @@
     <div class="twelve wide column">
     <div class="ui fluid raised card chatbox">
         <div class="content">
-        <div class="ui small feed">
+        <div class="ui small feed" id="message-content">
             <% @messages.each do |msg| %>
                 <div class="event">
                     <div class="content">
@@ -19,15 +19,15 @@
         </div>
         </div>
         <div class="extra content">
-            <form class="ui reply form">
+            <%= form_with scope: :message,url:messages_path,class:"ui reply form",local:true do |f|%>
                 <div class="field">
                     <div class="ui right icon input">
-                        <input type="text" placeholder="Enter The Message">
+                        <%= f.text_field :body , placeholder:"Enter The Message" %>
                         <i class="bordered inverted  orange icon edit"></i>
                     </div>
                 </div>
                 
-            </form>
+            <% end %>
         </div>
         </div>
     </div>
